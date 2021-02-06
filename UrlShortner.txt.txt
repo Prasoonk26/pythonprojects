@@ -1,0 +1,36 @@
+Think of it this way:
+
+Every time the URL Shortener receives a link to shorten, it saves that link into a Dictionary and returns a short URL to the individual requesting the URL.
+When a shortened URL is given to the URL Shortener, the URL Shortener looks into the Dictionary and retrieves the original link.
+Let’s see this visually:
+
+
+A visual representation of how URL shortens
+The URL Shortener creates a new ID (also called the key) for every request it receives. So how does the URL Shortener create a new key for every URL that it receives? Well….
+
+Unique key generation
+For simplicity, let’s assume the URL Shortener uses the request number as the key for the dictionary. We can use the request number because we can guarantee that each request number will be unique (we can’t have request number 1 happening twice). We can then shorten URLs by converting the request number directly into a shortened link:
+
+
+URLs grow so fast sometimes
+However, such methods will not scale if many users begin to use the URL Shortener. For example, as of writing this article, Twitter averaged 330 million daily users. Even if a fraction of the users were to send links in a day, such methods will quickly produce links longer than the original link. One way to combat that is to use base conversions to convert the request numbers into a shorter representation.
+
+Scaling the URL Shortener with base conversion
+What does base conversions mean? Base conversions is the process of converting numbers from different number bases. The numbers we are used to seeing are referred to as base 10 numbers. Base 10 simply means that we have 10 ways to represent numbers (0–9). Hypothetically speaking, we can convert numbers to an arbitrary bases. For example, if we were to use the alphabets (a-z-A-Z), alongside numbers (0–9) to represent numbers, we have base 62 (the sum of 26 lowercase alphabets + 26 uppercase alphabets +10 digits) numbers. Using the following algorithm, we can convert between base 10 to base 62:
+
+here we are using  a great way to convert the id to a short form , normal way of using is to create a template to map every long url to short one. such as template may be shorturl/1 for one request
+/2 , /3 an so on can be mapped but for million users and for each users having multiple url , then numbers will run out also creating a long url in the end hence no use of this .
+
+the other way round is to use bas e 62 number as mentioned above.
+
+for example url shortutl/125 can be scaled as 
+
+125/62 = quotient 2 with remainder 1
+2/62 = quotient 0 with remainder 2 
+
+noe check remainder in bcakward i.e 2, 1 which maps to c ,b 
+hence url is shorturl/cb which was /125
+
+this is one small example millions on number can be  expressed shortly in 62 base number
+
+code: https://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/
