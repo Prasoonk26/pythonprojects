@@ -1,0 +1,40 @@
+Okay, but what is exactly is an API?
+Well, API stands for Application Programming Interface.
+
+In short, it’s a set of rules that controls the interaction between software (i.e., an object that receives some task and object that gives this task). APIs allows us to skip diving deeply in the source code of some third-side software while allowing us to use their privileges fast and easy.
+
+How does this interface work?
+First and foremost, an API should have a host-URL (or base URL), which is the main address with which you will interact with.
+
+Also, APIs has a predefined set of endpoints – unique addresses inside host-URL, responsible for their functionality. Furthermore, APIs should have documentation that explains all endpoints, types of returned values, etc.
+
+After you find an interesting API and read documentation, you have to send a request – one single task for the server (receiving side).
+
+Metaphorically, it’s like a conversation between two people: Someone (you) asks a question (request), and the interlocutor (endpoint) answers (response).
+
+Types of API Requests
+There are many different types of requests that API could handle, but here are the most used ones:
+
+GET – returns data from the server. The most popular request by the way.
+POST – adds new data on the server. Often this type is used for registration or uploading files.
+PUT/PATCH – updates data, useful request but not so sought-after.
+DELETE – removes data from the server.
+Okay, we have got the meaning of the first and the last word in “Java REST API”.
+
+But what does REST mean?
+This is the style of software communication that helps a client to get the required data in the well-state for representation (REST – representational state transfer).
+
+So when we say REST API, we mean – APIs that not only returns requested data but also prepares it for further work.
+
+But how can we create a RESTful API? All that is required – a bunch of the architectural constraints:
+
+Client-server architecture – clear separation on two sides. The client sends requests and waits for the answer; the server then takes the opposite role. The main reason for this constraint – one side doesn’t care about anything except the correct format of the interaction (it’s not your problem how the server performs your request and vice versa).
+Statelessness – independence of each singular request from all previous and future requests. For example, if you would send the question “What Charlie’s surname?”, and then follow up with “How old is he?”, the server wouldn’t be able to answer the latter. The server doesn’t save any information from the client and requires it in each request.
+Cacheability – instead of the server, the client could (and even should) save some data on the local storage (cache). It increases productivity, as far as the number of requests will be smaller.
+Layered system – the server should include layers for different parts of the process. It is useful because layers don’t know anything about each other and server could easily be scaled with new layers (e.g., security).
+Uniform interface – each endpoint has to be with a unique address. Simple, useful, and necessary.
+Now that we have all the information about Java RESTful APIs, Let’s try it out!
+
+
+
+link:: https://rapidapi.com/blog/how-to-use-an-api-with-java/
